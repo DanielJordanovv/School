@@ -6,9 +6,11 @@ import {World3D} from './three/World3D';
 import {Headline} from './overlay/Headline';
 import {Logo} from './overlay/Logo';
 import {ProductPhotos} from './overlay/ProductPhotos';
+import {Watermark} from './overlay/Watermark';
 
 export type BebchoChristmasProps = {
 	products: string[];
+	watermark: boolean;
 };
 
 const Rays: React.FC = () => {
@@ -24,7 +26,7 @@ const Rays: React.FC = () => {
 	);
 };
 
-export const BebchoChristmas: React.FC<BebchoChristmasProps> = ({products}) => {
+export const BebchoChristmas: React.FC<BebchoChristmasProps> = ({products, watermark}) => {
 	return (
 		<AbsoluteFill style={{backgroundColor: '#1A0446'}}>
 			<Background />
@@ -36,6 +38,7 @@ export const BebchoChristmas: React.FC<BebchoChristmasProps> = ({products}) => {
 			<Logo />
 			<Flash />
 			<Vignette />
+			{watermark ? <Watermark /> : null}
 		</AbsoluteFill>
 	);
 };
