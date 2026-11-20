@@ -16,7 +16,7 @@ export const Logo: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					top: 600 - 330,
+					top: 630 - 330,
 					width: 1300,
 					height: 660,
 					borderRadius: '50%',
@@ -29,7 +29,7 @@ export const Logo: React.FC = () => {
 				name="BEBCHO logo"
 				style={{
 					position: 'absolute',
-					top: 418,
+					top: 440,
 					width: 1040,
 					height: 380,
 					scale: `${Math.max(0, s) * (1 + Math.sin((frame - START) * 0.09) * 0.012)}`,
