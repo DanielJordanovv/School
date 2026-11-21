@@ -7,7 +7,8 @@ import {CLAMP} from '../lib/anim';
 const extrude = (depth: number, color: string, glow: string) => {
 	const s: string[] = [];
 	for (let i = 1; i <= depth; i++) s.push(`0px ${i}px 0 ${color}`);
-	s.push(`0 ${depth + 8}px 22px rgba(10,0,35,0.6)`);
+	s.push(`0 ${depth + 6}px 10px rgba(10,0,35,0.75)`);
+	s.push(`0 ${depth + 14}px 30px rgba(10,0,35,0.7)`);
 	s.push(`0 0 36px ${glow}`);
 	return s.join(', ');
 };
@@ -16,7 +17,7 @@ const Letters: React.FC<{text: string; start: number; color: string; size: numbe
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
 	return (
-		<div style={{display: 'flex', justifyContent: 'center', whiteSpace: 'pre'}}>
+		<div style={{display: 'flex', justifyContent: 'center', whiteSpace: 'pre', filter: 'drop-shadow(0 12px 16px rgba(8,0,30,0.8)) drop-shadow(0 0 30px rgba(16,0,50,0.75))'}}>
 			{Array.from(text).map((ch, i) => {
 				const s = spring({frame: frame - start - i * 1.1, fps, config: {damping: 9, stiffness: 150, mass: 0.6}});
 				const bounce = Math.sin(frame * 0.13 + i * 0.6) * 3 * Math.min(1, s);
@@ -56,13 +57,27 @@ export const Headline: React.FC = () => {
 					fontWeight: 900,
 					letterSpacing: 1,
 					textAlign: 'center',
+					position: 'relative',
 					translate: interpolate(frame, [228, 250], ['0px -20px', '0px -365px'], {...CLAMP, easing: Easing.bezier(0.65, 0, 0.35, 1)}),
 					scale: interpolate(frame, [228, 250], [1, 0.5], {...CLAMP, easing: Easing.bezier(0.65, 0, 0.35, 1)}),
 				}}
 			>
-				<Letters text={'„ПЕРНИК,'} start={150} color="#FFFFFF" size={150} depth={10} shade="#2A0868" glow="rgba(255,255,255,0.3)" />
+				<div
+					style={{
+						position: 'absolute',
+						left: '50%',
+						top: '52%',
+						width: 1700,
+						height: 720,
+						translate: '-50% -50%',
+						borderRadius: '50%',
+						background: 'radial-gradient(ellipse, rgba(16,2,48,0.78) 0%, rgba(16,2,48,0.5) 40%, rgba(16,2,48,0) 70%)',
+						opacity: interpolate(frame, [145, 170], [0, 1], CLAMP),
+					}}
+				/>
+				<Letters text={'ПЕРНИК,'} start={150} color="#FFFFFF" size={150} depth={10} shade="#2A0868" glow="rgba(255,255,255,0.3)" />
 				<Letters text={'ВРЕМЕ Е ЗА'} start={159} color="#FFFFFF" size={132} depth={9} shade="#2A0868" glow="rgba(255,255,255,0.3)" />
-				<Letters text={'ПОДАРЪЦИ!“'} start={170} color="#FFD60A" size={196} depth={13} shade="#3A0A78" glow="rgba(255,214,10,0.55)" />
+				<Letters text={'ПОДАРЪЦИ!'} start={170} color="#FFD60A" size={196} depth={13} shade="#3A0A78" glow="rgba(255,214,10,0.55)" />
 			</Interactive.Div>
 		</AbsoluteFill>
 	);

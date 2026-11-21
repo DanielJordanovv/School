@@ -6,7 +6,7 @@
 |---|---|
 | 0–2 s | Royal-purple present pops in, gold stars orbit, the box shakes and light leaks from the lid |
 | 2–5 s | Golden burst: the lid flies off and the real BEBCHO products fly out of the present |
-| 5–8 s | Product line-up with presents and stars, headline „ПЕРНИК, ВРЕМЕ Е ЗА ПОДАРЪЦИ!“ |
+| 5–8 s | Product line-up with presents and stars, headline ПЕРНИК, ВРЕМЕ Е ЗА ПОДАРЪЦИ! |
 | 8–10 s | Headline moves up, the BEBCHO logo pops in at the centre with light rays and a shine sweep |
 
 ## Commands
